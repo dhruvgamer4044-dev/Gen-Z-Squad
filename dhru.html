@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Friends Group</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .friend {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #fun-fact {
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gen Z Squad!</h1>
+        <p>Welcome to our awesome group page. Add your friends and share fun facts!</p>
+    </header>
+    <div class="container">
+        <h2>Our Friends</h2>
+        <div id="friends-list">
+            <div class="friend">Pelvan- Loves talking and and flirting!</div>
+            <div class="friend">Gulabo- Queen of ghosts.</div>
+            <div class="friend">Dosa - I dont know.</div>
+        </div>
+        <input type="text" id="new-friend" placeholder="Add a new friend (name - fun fact)">
+        <button onclick="addFriend()"><a href="https://ig.me/j/Aba3I1mDtoqv4YaI/"> Friend</a></button>
+        <div id="fun-fact">Click the button below for a random fun fact!</div>
+        <button onclick="showFunFact()">Get Fun Fact</button>
+    </div>
+    <script>
+        function addFriend() {
+            const input = document.getElementById('new-friend');
+            const list = document.getElementById('friends-list');
+            if (input.value.trim() !== '') {
+                const newFriend = document.createElement('div');
+                newFriend.className = 'friend';
+                newFriend.textContent = input.value;
+                list.appendChild(newFriend);
+                input.value = '';
+            }
+        }
+        function showFunFact() {
+            const facts = [
+                "Did you know? Octopuses have three hearts!",
+                "Fun fact: A group of flamingos is called a 'flamboyance'.",
+                "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old!",
+                "Sharks have been around longer than trees!"
+            ];
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById('fun-fact').textContent = randomFact;
+        }
+    </script>
+</body>
+</html>
